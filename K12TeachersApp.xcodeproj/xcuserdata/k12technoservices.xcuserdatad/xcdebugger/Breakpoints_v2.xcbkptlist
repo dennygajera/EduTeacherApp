@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "2B3B5CC8-C8F5-418A-B472-12DAC6F940F7"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "35CCDB40-1B16-49DA-8D59-2F9AECE4820E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "K12TeachersApp/App/Scenes/Discussion forum/Discussion Forum/Discussion Forum Medals/DiscussionForumServices.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "14"
+            endingLineNumber = "14"
+            landmarkName = "fetchMyActivityDiscusstionPostsList(setUrl:success:failure:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "35CCDB40-1B16-49DA-8D59-2F9AECE4820E - 898a24ffd64365a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "eduvateTeachersApp.ApiHelper.fetchMyActivityDiscusstionPostsList(setUrl: eduvateTeachersApp.APIEndPoints, success: (Foundation.Data) -&gt; (), failure: (eduvateTeachersApp.serviceError) -&gt; ()) -&gt; ()"
+                  moduleName = "eduvateTeachersApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/k12technoservices/Desktop/OFFICEK12/K12TeachersApp/Teacher-ios-app/eduvate_iOS_Teachers/K12TeachersApp/App/Scenes/Discussion%20forum/Discussion%20Forum/Discussion%20Forum%20Medals/DiscussionForumServices.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "73">
+               </Location>
+               <Location
+                  uuid = "35CCDB40-1B16-49DA-8D59-2F9AECE4820E - f3e9b19d1c6075f0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (eduvateTeachersApp.serviceError) -&gt; () in eduvateTeachersApp.ApiHelper.fetchMyActivityDiscusstionPostsList(setUrl: eduvateTeachersApp.APIEndPoints, success: (Foundation.Data) -&gt; (), failure: (eduvateTeachersApp.serviceError) -&gt; ()) -&gt; ()"
+                  moduleName = "eduvateTeachersApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/k12technoservices/Desktop/OFFICEK12/K12TeachersApp/Teacher-ios-app/eduvate_iOS_Teachers/K12TeachersApp/App/Scenes/Discussion%20forum/Discussion%20Forum/Discussion%20Forum%20Medals/DiscussionForumServices.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "48">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

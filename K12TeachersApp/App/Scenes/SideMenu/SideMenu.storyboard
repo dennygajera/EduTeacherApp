@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Side MenuVC-->
+        <scene sceneID="eeG-lo-0GQ">
+            <objects>
+                <viewController storyboardIdentifier="SideMenuVC" id="sFC-9Y-ELT" customClass="SideMenuVC" customModule="eduvateTeachersApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="BWo-2C-UCy">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="b07-yn-QII">
+                                <rect key="frame" x="0.0" y="134" width="414" height="728"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <view key="tableFooterView" contentMode="scaleToFill" id="BTy-8I-XAy">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RFk-gX-fgE">
+                                            <rect key="frame" x="25" y="0.0" width="120" height="44"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="44" id="4X5-0F-LUy"/>
+                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="120" id="XZb-sE-v1y"/>
+                                            </constraints>
+                                            <state key="normal" title="Logout"/>
+                                            <connections>
+                                                <action selector="btnLogout:" destination="sFC-9Y-ELT" eventType="touchUpInside" id="UXi-wk-S7q"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstItem="RFk-gX-fgE" firstAttribute="leading" secondItem="BTy-8I-XAy" secondAttribute="leading" constant="25" id="4fG-gJ-mZY"/>
+                                        <constraint firstAttribute="bottom" secondItem="RFk-gX-fgE" secondAttribute="bottom" id="5ot-AY-lhy"/>
+                                        <constraint firstItem="RFk-gX-fgE" firstAttribute="top" secondItem="BTy-8I-XAy" secondAttribute="top" id="bvQ-Ft-5hu"/>
+                                    </constraints>
+                                </view>
+                                <connections>
+                                    <outlet property="dataSource" destination="sFC-9Y-ELT" id="ZO4-lD-HWM"/>
+                                    <outlet property="delegate" destination="sFC-9Y-ELT" id="gsR-pc-eqx"/>
+                                </connections>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LO7-2K-CFQ">
+                                <rect key="frame" x="0.0" y="44" width="414" height="90"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PCI-dB-tHV">
+                                        <rect key="frame" x="20" y="49" width="274" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LOT-aE-78V">
+                                        <rect key="frame" x="264" y="0.0" width="30" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="ZhT-XC-8Nt"/>
+                                            <constraint firstAttribute="width" constant="30" id="kyq-SV-ykP"/>
+                                        </constraints>
+                                        <state key="normal" image="Home"/>
+                                        <connections>
+                                            <action selector="btnHome:" destination="sFC-9Y-ELT" eventType="touchUpInside" id="uL8-80-2GB"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="90" id="4s8-0V-YG6"/>
+                                    <constraint firstAttribute="trailing" secondItem="PCI-dB-tHV" secondAttribute="trailing" constant="120" id="8OJ-kb-LZN"/>
+                                    <constraint firstItem="LOT-aE-78V" firstAttribute="top" secondItem="LO7-2K-CFQ" secondAttribute="top" id="9qW-A7-Mta"/>
+                                    <constraint firstAttribute="bottom" secondItem="PCI-dB-tHV" secondAttribute="bottom" constant="20" id="SQc-iN-FZC"/>
+                                    <constraint firstItem="PCI-dB-tHV" firstAttribute="top" secondItem="LOT-aE-78V" secondAttribute="bottom" constant="19" id="XXK-V7-Hni"/>
+                                    <constraint firstItem="PCI-dB-tHV" firstAttribute="leading" secondItem="LO7-2K-CFQ" secondAttribute="leading" constant="20" id="uSW-Fh-OEa"/>
+                                    <constraint firstAttribute="trailing" secondItem="LOT-aE-78V" secondAttribute="trailing" constant="120" id="wMZ-Tg-IuT"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="LO7-2K-CFQ" firstAttribute="top" secondItem="oxV-Mv-CxB" secondAttribute="top" id="09J-tN-5PS"/>
+                            <constraint firstItem="oxV-Mv-CxB" firstAttribute="trailing" secondItem="b07-yn-QII" secondAttribute="trailing" id="Bwu-zU-cr7"/>
+                            <constraint firstItem="b07-yn-QII" firstAttribute="top" secondItem="LO7-2K-CFQ" secondAttribute="bottom" id="CGd-fD-fzW"/>
+                            <constraint firstItem="LO7-2K-CFQ" firstAttribute="leading" secondItem="oxV-Mv-CxB" secondAttribute="leading" id="Kag-Um-jmA"/>
+                            <constraint firstItem="b07-yn-QII" firstAttribute="leading" secondItem="oxV-Mv-CxB" secondAttribute="leading" id="lZJ-PX-31s"/>
+                            <constraint firstItem="oxV-Mv-CxB" firstAttribute="bottom" secondItem="b07-yn-QII" secondAttribute="bottom" id="nIL-bH-eyg"/>
+                            <constraint firstItem="LO7-2K-CFQ" firstAttribute="trailing" secondItem="oxV-Mv-CxB" secondAttribute="trailing" id="yhn-0R-E4H"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="oxV-Mv-CxB"/>
+                    </view>
+                    <connections>
+                        <outlet property="logoutBtn" destination="RFk-gX-fgE" id="nKA-l1-j2j"/>
+                        <outlet property="sideMenuTableView" destination="b07-yn-QII" id="Lbb-vZ-HW9"/>
+                        <outlet property="teacherNameLabel" destination="PCI-dB-tHV" id="Egc-cg-xsO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZsD-TK-kCM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-120.28985507246378" y="146.65178571428569"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Home" width="29.5" height="29.5"/>
+    </resources>
+</document>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="ReportDiaryFilesCVCell" customModule="eduvateTeachersApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="79" height="78"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="79" height="78"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fI3-iU-0Rh">
+                        <rect key="frame" x="0.0" y="0.0" width="79" height="78"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="y5U-y7-64Z">
+                                <rect key="frame" x="0.0" y="0.0" width="79" height="78"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rOb-97-rdw">
+                                <rect key="frame" x="57" y="2" width="20" height="20"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="06N-34-2kw"/>
+                                    <constraint firstAttribute="width" constant="20" id="WIa-cT-YiA"/>
+                                </constraints>
+                                <state key="normal" image="CloseButton"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="79" id="80T-FC-93L"/>
+                            <constraint firstItem="y5U-y7-64Z" firstAttribute="leading" secondItem="fI3-iU-0Rh" secondAttribute="leading" id="BAa-Mu-IYf"/>
+                            <constraint firstAttribute="height" constant="78" id="I1t-DU-kfh"/>
+                            <constraint firstAttribute="bottom" secondItem="y5U-y7-64Z" secondAttribute="bottom" id="WV8-eo-43a"/>
+                            <constraint firstItem="y5U-y7-64Z" firstAttribute="top" secondItem="fI3-iU-0Rh" secondAttribute="top" id="XZ2-zT-wSN"/>
+                            <constraint firstItem="rOb-97-rdw" firstAttribute="top" secondItem="fI3-iU-0Rh" secondAttribute="top" constant="2" id="fEW-HC-faR"/>
+                            <constraint firstAttribute="trailing" secondItem="y5U-y7-64Z" secondAttribute="trailing" id="fZ0-YF-A4a"/>
+                            <constraint firstAttribute="trailing" secondItem="rOb-97-rdw" secondAttribute="trailing" constant="2" id="iio-iU-xuJ"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="fI3-iU-0Rh" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="9WI-qR-EqP"/>
+                <constraint firstAttribute="bottom" secondItem="fI3-iU-0Rh" secondAttribute="bottom" id="C6Y-XE-CWg"/>
+                <constraint firstAttribute="trailing" secondItem="fI3-iU-0Rh" secondAttribute="trailing" id="NdX-VE-g0O"/>
+                <constraint firstItem="fI3-iU-0Rh" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="cQm-dR-45e"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <size key="customSize" width="79" height="78"/>
+            <connections>
+                <outlet property="bgView" destination="fI3-iU-0Rh" id="92v-zL-bRD"/>
+                <outlet property="deleteButton" destination="rOb-97-rdw" id="Cbe-bI-guo"/>
+                <outlet property="fileThumbnailImage" destination="y5U-y7-64Z" id="QE1-A6-xZm"/>
+            </connections>
+            <point key="canvasLocation" x="158.69565217391306" y="135.9375"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="CloseButton" width="34" height="34"/>
+    </resources>
+</document>

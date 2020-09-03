@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="OpenSans-Bold.ttf">
+            <string>OpenSans-Bold</string>
+        </array>
+        <array key="OpenSans-Regular.ttf">
+            <string>OpenSans-Regular</string>
+        </array>
+        <array key="OpenSans-SemiBold.ttf">
+            <string>OpenSans-SemiBold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="ViewBlogsTVCell" customModule="eduvateTeachersApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="343" height="300"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="343" height="300"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9bX-fK-HsD">
+                        <rect key="frame" x="10" y="10" width="323" height="285"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Op0-qm-6Hp">
+                                <rect key="frame" x="0.0" y="0.0" width="323" height="160"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="160" id="2fI-Xj-b5J"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is the Blog Title holder label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c6d-Ad-aII">
+                                <rect key="frame" x="15" y="170" width="293" height="16.5"/>
+                                <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="14"/>
+                                <color key="textColor" red="0.015686274510000001" green="0.16078431369999999" blue="0.33333333329999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author: Author Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2TJ-rV-2zq">
+                                <rect key="frame" x="15" y="191.5" width="214.5" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="1" green="0.60784313729999995" blue="0.015686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Genere: Technology(others) others" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cWx-zU-OPJ">
+                                <rect key="frame" x="15" y="223.5" width="214.5" height="16.5"/>
+                                <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="14"/>
+                                <color key="textColor" red="0.015686274510000001" green="0.16078431369999999" blue="0.33333333329999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2 : 30 AM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v02-LT-qek">
+                                <rect key="frame" x="252" y="202.5" width="56" height="15.5"/>
+                                <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="13"/>
+                                <color key="textColor" red="0.015686274510000001" green="0.16078431369999999" blue="0.33333333329999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="22-07-2020" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HW5-rC-lF4">
+                                <rect key="frame" x="240" y="224" width="68" height="15.5"/>
+                                <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="13"/>
+                                <color key="textColor" red="0.015686274510000001" green="0.16078431369999999" blue="0.33333333329999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aBB-dj-jvc">
+                                <rect key="frame" x="189" y="242" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="3jt-KF-pWD"/>
+                                    <constraint firstAttribute="width" constant="40" id="VdT-W7-19Z"/>
+                                </constraints>
+                                <state key="normal" image="ic_blog_like"/>
+                                <connections>
+                                    <action selector="likeButtonTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="ykz-6G-lv0"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dH7-3a-8Hk">
+                                <rect key="frame" x="229" y="247" width="79" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="8mA-ty-brG"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="44" id="zcC-PG-HKb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="12"/>
+                                <state key="normal" title="1000000 Likes">
+                                    <color key="titleColor" red="0.015686274510000001" green="0.16078431369999999" blue="0.33333333329999998" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="HW5-rC-lF4" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="cWx-zU-OPJ" secondAttribute="trailing" constant="10.5" id="0IW-pL-39u"/>
+                            <constraint firstItem="Op0-qm-6Hp" firstAttribute="top" secondItem="9bX-fK-HsD" secondAttribute="top" id="0MP-Ub-qqC"/>
+                            <constraint firstItem="aBB-dj-jvc" firstAttribute="centerY" secondItem="dH7-3a-8Hk" secondAttribute="centerY" id="3jX-jv-6ZT"/>
+                            <constraint firstItem="2TJ-rV-2zq" firstAttribute="top" secondItem="c6d-Ad-aII" secondAttribute="bottom" constant="5" id="66g-Hk-7Se"/>
+                            <constraint firstAttribute="trailing" secondItem="dH7-3a-8Hk" secondAttribute="trailing" constant="15" id="83u-C9-vOB"/>
+                            <constraint firstItem="HW5-rC-lF4" firstAttribute="centerY" secondItem="cWx-zU-OPJ" secondAttribute="centerY" id="A2P-bX-L1w"/>
+                            <constraint firstItem="2TJ-rV-2zq" firstAttribute="leading" secondItem="9bX-fK-HsD" secondAttribute="leading" constant="15" id="Bgz-Da-7fc"/>
+                            <constraint firstItem="c6d-Ad-aII" firstAttribute="top" secondItem="Op0-qm-6Hp" secondAttribute="bottom" constant="10" id="F5u-Fm-x1A"/>
+                            <constraint firstItem="Op0-qm-6Hp" firstAttribute="leading" secondItem="9bX-fK-HsD" secondAttribute="leading" id="FW0-5a-ohd"/>
+                            <constraint firstItem="cWx-zU-OPJ" firstAttribute="leading" secondItem="9bX-fK-HsD" secondAttribute="leading" constant="15" id="Gv1-aj-9wR"/>
+                            <constraint firstAttribute="bottom" secondItem="dH7-3a-8Hk" secondAttribute="bottom" constant="8" id="I2R-W3-FlW"/>
+                            <constraint firstItem="dH7-3a-8Hk" firstAttribute="leading" secondItem="aBB-dj-jvc" secondAttribute="trailing" id="JVV-wK-7XW"/>
+                            <constraint firstItem="c6d-Ad-aII" firstAttribute="leading" secondItem="9bX-fK-HsD" secondAttribute="leading" constant="15" id="YxB-LR-4e8"/>
+                            <constraint firstItem="cWx-zU-OPJ" firstAttribute="top" secondItem="2TJ-rV-2zq" secondAttribute="bottom" constant="15" id="b4p-gA-Mpi"/>
+                            <constraint firstItem="2TJ-rV-2zq" firstAttribute="trailing" secondItem="cWx-zU-OPJ" secondAttribute="trailing" id="g8m-Bh-XZP"/>
+                            <constraint firstAttribute="trailing" secondItem="v02-LT-qek" secondAttribute="trailing" constant="15" id="lMC-0s-Cct"/>
+                            <constraint firstItem="dH7-3a-8Hk" firstAttribute="top" secondItem="HW5-rC-lF4" secondAttribute="bottom" constant="7.5" id="q3c-nF-4Kk"/>
+                            <constraint firstAttribute="trailing" secondItem="Op0-qm-6Hp" secondAttribute="trailing" id="qUc-ml-AKo"/>
+                            <constraint firstAttribute="trailing" secondItem="HW5-rC-lF4" secondAttribute="trailing" constant="15" id="tE2-1r-ab9"/>
+                            <constraint firstItem="HW5-rC-lF4" firstAttribute="top" secondItem="v02-LT-qek" secondAttribute="bottom" constant="6" id="vEw-Er-fFV"/>
+                            <constraint firstAttribute="trailing" secondItem="c6d-Ad-aII" secondAttribute="trailing" constant="15" id="yBn-jc-kK5"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="9bX-fK-HsD" secondAttribute="bottom" constant="5" id="27k-17-gYi"/>
+                    <constraint firstItem="9bX-fK-HsD" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="gR7-bZ-dmX"/>
+                    <constraint firstAttribute="trailing" secondItem="9bX-fK-HsD" secondAttribute="trailing" constant="10" id="wLQ-i2-S7Q"/>
+                    <constraint firstItem="9bX-fK-HsD" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="yJV-T2-ugI"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="avatarImageView" destination="Op0-qm-6Hp" id="aCf-qj-0vW"/>
+                <outlet property="blogAuthorNameLabel" destination="2TJ-rV-2zq" id="Dfy-TL-C2f"/>
+                <outlet property="blogDateLabel" destination="HW5-rC-lF4" id="Ter-Ay-xmC"/>
+                <outlet property="blogGenereTypeLabel" destination="cWx-zU-OPJ" id="ffz-Lp-UDe"/>
+                <outlet property="blogLikeButton" destination="aBB-dj-jvc" id="74W-ZC-nfN"/>
+                <outlet property="blogNoLikeButton" destination="dH7-3a-8Hk" id="8P6-rc-Xy5"/>
+                <outlet property="blogTimeLabel" destination="v02-LT-qek" id="4Hk-kS-qkg"/>
+                <outlet property="blogTitleLabel" destination="c6d-Ad-aII" id="eNK-c2-SgB"/>
+                <outlet property="holderview" destination="9bX-fK-HsD" id="G9p-pw-9O7"/>
+            </connections>
+            <point key="canvasLocation" x="139" y="114"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="ic_blog_like" width="16.5" height="16"/>
+    </resources>
+</document>

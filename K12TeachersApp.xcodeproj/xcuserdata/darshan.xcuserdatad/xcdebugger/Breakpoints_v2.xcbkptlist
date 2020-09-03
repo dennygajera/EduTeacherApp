@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "D6394415-A9A9-48E7-9E02-03CA46163540"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9BB7F4DB-3A2C-4257-86D7-4818DFE33E60"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "K12TeachersApp/App/Scenes/Discussion forum/DiscussionForumViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "getCategoryList(setUrl:payload:success:failure:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "451712F8-4DB7-4510-81BF-212DEFB9822D"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "K12TeachersApp/App/Scenes/Discussion forum/DiscussionForumViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
+            landmarkName = "getCategoryList(setUrl:payload:success:failure:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9A62FF9B-0F6A-4AD2-9D97-97666848E860"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "K12TeachersApp/App/Scenes/Discussion forum/DiscussionForumViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
+            landmarkName = "getCategoryList(setUrl:payload:success:failure:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "9A62FF9B-0F6A-4AD2-9D97-97666848E860 - b09d2837fda2abb1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "eduvateTeachersApp.ApiHelper.getCategoryList(setUrl: eduvateTeachersApp.APIEndPoints, payload: Swift.Dictionary&lt;Swift.String, Swift.AnyObject&gt;, success: (Foundation.Data) -&gt; (), failure: (eduvateTeachersApp.serviceError) -&gt; ()) -&gt; ()"
+                  moduleName = "eduvateTeachersApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/darshan/Downloads/eduvate_iOS_Teachers/K12TeachersApp/App/Scenes/Discussion%20forum/DiscussionForumView%10Model.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "36"
+                  endingLineNumber = "36"
+                  offsetFromSymbolStart = "85">
+               </Location>
+               <Location
+                  uuid = "9A62FF9B-0F6A-4AD2-9D97-97666848E860 - 4683a2bb5f223872"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (eduvateTeachersApp.serviceError) -&gt; () in eduvateTeachersApp.ApiHelper.getCategoryList(setUrl: eduvateTeachersApp.APIEndPoints, payload: Swift.Dictionary&lt;Swift.String, Swift.AnyObject&gt;, success: (Foundation.Data) -&gt; (), failure: (eduvateTeachersApp.serviceError) -&gt; ()) -&gt; ()"
+                  moduleName = "eduvateTeachersApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/darshan/Downloads/eduvate_iOS_Teachers/K12TeachersApp/App/Scenes/Discussion%20forum/DiscussionForumView%10Model.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "37"
+                  endingLineNumber = "37"
+                  offsetFromSymbolStart = "49">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E45A6C56-9EA0-4E7E-B3AD-94B176B9B9CB"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "K12TeachersApp/App/Scenes/Discussion forum/DiscussionForumVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "115"
+            endingLineNumber = "115"
+            landmarkName = "refresh()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Reveal View Controller-->
+        <scene sceneID="KA8-Di-5WU">
+            <objects>
+                <viewController storyboardIdentifier="SWRevealViewController" id="0lq-tB-nJD" customClass="SWRevealViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mEo-ZL-5CB">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="yqN-tG-zXJ"/>
+                    </view>
+                    <connections>
+                        <segue destination="zEE-9f-DXr" kind="custom" identifier="sw_rear" customClass="SWRevealViewControllerSegueSetController" id="ff6-2c-LEu"/>
+                        <segue destination="Vq0-k2-4Rf" kind="custom" identifier="sw_front" customClass="SWRevealViewControllerSegueSetController" id="bxX-uS-oZm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ayd-rF-Kfy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-237" y="-26"/>
+        </scene>
+        <!--SideMenuVC-->
+        <scene sceneID="wEl-g5-JeE">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="SideMenuVC" storyboardName="SideMenu" referencedIdentifier="SideMenuVC" id="zEE-9f-DXr" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ny5-zF-cUg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="610" y="-330"/>
+        </scene>
+        <!--LandingInfoVCID-->
+        <scene sceneID="76s-dh-0b0">
+            <objects>
+                <viewControllerPlaceholder storyboardName="LandingInfo" referencedIdentifier="LandingInfoVCID" id="Vq0-k2-4Rf" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UHP-rY-Hgf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="639" y="-141"/>
+        </scene>
+    </scenes>
+</document>

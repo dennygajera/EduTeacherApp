@@ -1,0 +1,41 @@
+
+{
+    "teacherSideMenuList": [
+        {
+            "sideMenuName": "Blogs",
+            "sideMenuImage":"BeSocial",
+            "sideMenuVC":"BlogsVC",
+            "storyboardName":"Blogs"
+        },
+        {
+            "sideMenuName": "Homework",
+            "sideMenuImage":"ic_sideMenu_academics",
+            "sideMenuVC":"HomeworkVC",
+            "storyboardName":"Homework"
+        },
+        {
+            "sideMenuName": "Daily Diary",
+            "sideMenuImage":"ic_sideMenu_academics",
+            "sideMenuVC":"ReportDiaryVC",
+            "storyboardName":"ReportDiary"
+        },
+        {
+            "sideMenuName": "Online Class",
+            "sideMenuImage":"Support",
+            "sideMenuVC":"OnlineClassVC",
+            "storyboardName":"OnlineClass"
+        },
+        {
+            "sideMenuName": "eBook",
+            "sideMenuImage":"BeSocial",
+            "sideMenuVC":"EBooksVC",
+            "storyboardName":"eBooks"
+        },
+        {
+            "sideMenuName": "Discussion Forum",
+            "sideMenuImage":"Support",
+            "sideMenuVC":"DiscussionForumVC",
+            "storyboardName":"DiscussionForum"
+        }
+    ]
+}
