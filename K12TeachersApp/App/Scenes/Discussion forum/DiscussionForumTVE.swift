@@ -8,14 +8,16 @@
 
 import Foundation
 extension DiscussionForumVC : UITableViewDelegate, UITableViewDataSource {
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return 10
-        return self.discussionForumPostListresults?.count ?? 0
+        //        return 10
+        return self.commonDisplayList?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DiscussionForumTVCell", for: indexPath) as! DiscussionForumTVCell
-        let data : DiscussionForumPostListModelResults? = self.discussionForumPostListresults?[indexPath.row]
+        let data : DiscussionForumPostListModelResults? = self.commonDisplayList?[indexPath.row]
         cell.categoryLabel.text = data?.category?.title ?? "-NA-"
         cell.subtypeLabel.text = data?.sub_category?.title ?? "-NA-"
         cell.subSubTypeLabel.text = data?.sub_sub_category?.title ?? "-NA-"
@@ -24,7 +26,7 @@ extension DiscussionForumVC : UITableViewDelegate, UITableViewDataSource {
         cell.titleLabel.text = "Title - \(data?.title ?? "-NA-")\nDescription - \(data?.description?.description.html2Strings ?? "-NA-")"
         cell.likeLabel.text = "\(data?.like_count ?? "0") Likes"
         cell.commentLabel.text = "\(data?.comment_count ?? "0") Answers"
-
+        
         if(data?.comment_count == "0"){
             cell.btnComments.isEnabled = false
             cell.btnComments.layer.opacity = 0.5
@@ -32,32 +34,32 @@ extension DiscussionForumVC : UITableViewDelegate, UITableViewDataSource {
             cell.btnComments.isEnabled = true
             cell.btnComments.layer.opacity = 1
         }
-
+        
         let gold_Count = data?.gold_count ?? 0
         let silver_count = data?.silver_count ?? 0
         let bronze_count = data?.bronze_count ?? 0
         let medalCount = Int(gold_Count + silver_count + bronze_count)
         cell.medalsLabel.text = "\(medalCount) Medals"
-
-//        cell.btnViewPost.addTarget(self, action: #selector(btnViewPost(sender:)), for: .touchUpInside)
-//        cell.btnViewPost.tag = indexPath.row
-//
-//        cell.btnComments.addTarget(self, action: #selector(btnComments(sender:)), for: .touchUpInside)
-//        cell.btnComments.tag = indexPath.row
-//
-//        cell.btnMedals.addTarget(self, action: #selector(btnMedals(sender:)), for: .touchUpInside)
-//        cell.btnMedals.tag = indexPath.row
-//
-//        cell.btnLike.addTarget(self, action: #selector(btnLike(sender:)), for: .touchUpInside)
-
+        
+        //        cell.btnViewPost.addTarget(self, action: #selector(btnViewPost(sender:)), for: .touchUpInside)
+        //        cell.btnViewPost.tag = indexPath.row
+        //
+        //        cell.btnComments.addTarget(self, action: #selector(btnComments(sender:)), for: .touchUpInside)
+        //        cell.btnComments.tag = indexPath.row
+        //
+        //        cell.btnMedals.addTarget(self, action: #selector(btnMedals(sender:)), for: .touchUpInside)
+        //        cell.btnMedals.tag = indexPath.row
+        //
+        //        cell.btnLike.addTarget(self, action: #selector(btnLike(sender:)), for: .touchUpInside)
+        
         if(data?.user_like == false){
-
+            
             cell.btnLike.layer.opacity = 0.5
         } else {
-
+            
             cell.btnLike.layer.opacity = 1
         }
-
+        
         cell.cellBGView.borderWidth = 2
         if (indexPath.row % 2 == 0)
         {
@@ -67,18 +69,36 @@ extension DiscussionForumVC : UITableViewDelegate, UITableViewDataSource {
             cell.cellBGView.borderColor = HexColor("#EBFFD5")
             cell.userNameBGView.backgroundColor = HexColor("#EBFFD5")
         }
-
-        let comparerowindex = (self.discussionForumPostListresults?.count ?? 1) - 2
-                    if  (comparerowindex == indexPath.row) {
-                        self.refresh()
-                    }
         cell.selectionStyle = .none
         return cell
     }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
     
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        isDataLoading = false
+    }
+    
+    // If need in future to detail pagination.
+    //    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+    //
+    //    }
+    
+    //Pagination
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        if ((self.discussionForumTableView.contentOffset.y + self.discussionForumTableView.frame.size.height + 1100) >= self.discussionForumTableView.contentSize.height) {
+            if !isDataLoading {
+                print(self.discussionForumTableView.contentOffset.y + self.discussionForumTableView.frame.size.height)
+                print(self.discussionForumTableView.contentSize.height)
+                self.refresh()
+            }
+        }
+    }
+}
+
+
 //    @objc func btnViewPost(sender: UIButton){
 //        let data : DiscussionForumPostListModelResults? = self.discussionForumPostList?.results?[sender.tag]
 //
@@ -86,14 +106,14 @@ extension DiscussionForumVC : UITableViewDelegate, UITableViewDataSource {
 //
 //        self.performSegue(withIdentifier: "toPost", sender: self)
 //    }
-    
+
 //    @objc func btnComments(sender: UIButton){
 //
 //        let data : DiscussionForumPostListModelResults? = self.discussionForumPostList?.results?[sender.tag]
 //        self.postId = data?.id?.description ?? ""
 //        self.performSegue(withIdentifier: "toComments", sender: self)
 //    }
-    
+
 //    @objc func btnMedals(sender: UIButton){
 //
 //           let data : DiscussionForumPostListModelResults? = self.discussionForumPostList?.results?[sender.tag]
@@ -103,8 +123,8 @@ extension DiscussionForumVC : UITableViewDelegate, UITableViewDataSource {
 //           self.postId = data?.id?.description ?? ""
 //           self.performSegue(withIdentifier: "toMedals", sender: self)
 //       }
-    
-    //MARK: Download pdf
+
+//MARK: Download pdf
 //    @objc func btnLike(sender: UIButton)
 //    {
 //        let getIndex: CGPoint = sender.convert(CGPoint.zero, to: discussionForumTableView)
@@ -119,6 +139,5 @@ extension DiscussionForumVC : UITableViewDelegate, UITableViewDataSource {
 ////        cell.likeLabel.text = "\(likeCount) Likes"
 ////        cell.btnLike.isEnabled = false
 //    }
-    
-}
+
 

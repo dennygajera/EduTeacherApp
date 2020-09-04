@@ -8,6 +8,11 @@
 
 import UIKit
 
+struct LogType {
+    static let activity = "activity"
+    static let my = "my"
+}
+
 class DiscussionForumVC: BaseVC {
     
     @IBOutlet weak var holder_View: UIView!
@@ -42,15 +47,32 @@ class DiscussionForumVC: BaseVC {
     var bronzeCount = Int()
     var categoryPicker = UIPickerView()
     var categoryToolBar = UIToolbar()
-    var logsType = "Active Log"
     var discussionpostmodalVM = DiscussionPostListModel()
     var loadMoreItems: Bool = false
     var discussionForumPostList : DiscussionForumPostListModel? = nil
     var refreshControl = UIRefreshControl()
-    var discussionForumPostListresults : [DiscussionForumPostListModelResults]?
+    var discussionForumPostListresultsActivity : [DiscussionForumPostListModelResults]?
+    var discussionForumPostListresultsMyLog : [DiscussionForumPostListModelResults]?
+    var commonDisplayList : [DiscussionForumPostListModelResults]?
     var viewModel = DiscussionForumView_Model()
     var strSelectedCategory: String = ""
     var lastSelectedCategoryId = ""
+    var isDataLoading: Bool = false
+    
+   
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        title = "Discussion Forum"
+        self.activityLabel.text = "My Log"
+        holder_View.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
+        holder_View.layer.cornerRadius = 24.0
+        holder_View.clipsToBounds = true
+        self.getfetchMyActivityDiscusstionPostsList(pageNo: "1", pageSize: "10", type: LogType.activity)
+        self.refreshControl.attributedTitle = NSAttributedString(string: "Fetching more quieries!")
+        self.refreshControl.addTarget(self, action: #selector(refreshTableView), for: .valueChanged)
+        discussionForumTableView.addSubview(refreshControl)
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         BasicMethods()
         pickerFun()
@@ -61,58 +83,86 @@ class DiscussionForumVC: BaseVC {
         ProgressHud.hideActivityIndicator(uiView: self.view)
     }
     
-    
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        title = "Discussion Forum"
-        holder_View.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
-        holder_View.layer.cornerRadius = 24.0
-        holder_View.clipsToBounds = true
-        self.getfetchMyActivityDiscusstionPostsList(pageNo: "1", pageSize: "10")
-        self.refreshControl.attributedTitle = NSAttributedString(string: "Fetching more quieries!")
-        self.refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
-        discussionForumTableView.addSubview(refreshControl)
-        
-        //        fetchActivityLogsPostApi(category_id: "")
-        // Do any additional setup after loading the view.
+    @objc func refreshTableView() {
+        if btnActivityLog.isSelected { // My Log
+            self.getfetchMyActivityDiscusstionPostsList(pageNo: "1", pageSize: "10", type: LogType.my)
+        } else { // Activity
+            self.getfetchMyActivityDiscusstionPostsList(pageNo: "1", pageSize: "10", type: LogType.activity)
+        }
     }
-    fileprivate func getfetchMyActivityDiscusstionPostsList(pageNo: String, pageSize: String, categoryId: String = "") {
+    
+    
+    fileprivate func getfetchMyActivityDiscusstionPostsList(pageNo: String, pageSize: String, categoryId: String = "", type: String = LogType.activity) {
         //
-        loadMoreItems == false ? ProgressHud.showActivityIndicator(uiView: self.view): nil
-        loadMoreItems = false
-        discussionpostmodalVM.getfetchMyActivityDiscusstionPostsList(pageNo: pageNo, pageSize: pageSize, categoryId: categoryId) {
-            DispatchQueue.main.async {
-                self.refreshControl.endRefreshing()
-                self.discussionForumPostList = self.discussionpostmodalVM.discussionForumPostListData
-                if(self.discussionForumPostList?.results?.count ?? 0 > 0){
-                    print(self.lastSelectedCategoryId)
-                    if self.lastSelectedCategoryId == categoryId {
-                        if(self.discussionForumPostListresults?.count ?? 0 > 0){
-                            self.discussionForumPostListresults?.append(contentsOf: (self.discussionForumPostList?.results)!)
+        
+        if type == LogType.activity {
+            loadMoreItems == false ? ProgressHud.showActivityIndicator(uiView: self.view): nil
+            loadMoreItems = false
+            discussionpostmodalVM.getfetchMyActivityDiscusstionPostsList(pageNo: pageNo, pageSize: pageSize, categoryId: categoryId, type: type) {
+                DispatchQueue.main.async {
+                    self.refreshControl.endRefreshing()
+                    self.discussionForumPostList = self.discussionpostmodalVM.discussionForumPostListData
+                    if(self.discussionForumPostList?.results?.count ?? 0 > 0) {
+                        print(self.lastSelectedCategoryId)
+                        if self.lastSelectedCategoryId == categoryId {
+                            if(self.discussionForumPostListresultsActivity?.count ?? 0 > 0){
+                                self.discussionForumPostListresultsActivity?.append(contentsOf: (self.discussionForumPostList?.results)!)
+                            } else {
+                                self.discussionForumPostListresultsActivity = self.discussionForumPostList?.results
+                            }
                         } else {
-                            self.discussionForumPostListresults = self.discussionForumPostList?.results
+                            self.discussionForumPostListresultsActivity = self.discussionForumPostList?.results
                         }
-                    } else {
-                        self.discussionForumPostListresults = self.discussionForumPostList?.results
                     }
+                    self.commonDisplayList = self.discussionForumPostListresultsActivity
+                    self.lastSelectedCategoryId = categoryId
+                    self.discussionForumTableView.reloadData()
+                    ProgressHud.hideActivityIndicator(uiView: self.view)
                 }
-                self.lastSelectedCategoryId = categoryId
-                self.discussionForumTableView.reloadData()
-                ProgressHud.hideActivityIndicator(uiView: self.view)
-                
+            }
+        } else if type == LogType.my {
+            loadMoreItems == false ? ProgressHud.showActivityIndicator(uiView: self.view): nil
+            loadMoreItems = false
+            discussionpostmodalVM.getfetchMyActivityDiscusstionPostsList(pageNo: pageNo, pageSize: pageSize, categoryId: categoryId, type: type) {
+                DispatchQueue.main.async {
+                    self.refreshControl.endRefreshing()
+                    self.discussionForumPostList = self.discussionpostmodalVM.discussionForumPostListData
+                    if(self.discussionForumPostList?.results?.count ?? 0 > 0) {
+                        print(self.lastSelectedCategoryId)
+                        if self.lastSelectedCategoryId == categoryId {
+                            if(self.discussionForumPostListresultsMyLog?.count ?? 0 > 0){
+                                self.discussionForumPostListresultsMyLog?.append(contentsOf: (self.discussionForumPostList?.results)!)
+                            } else {
+                                self.discussionForumPostListresultsMyLog = self.discussionForumPostList?.results
+                            }
+                        } else {
+                            self.discussionForumPostListresultsMyLog = self.discussionForumPostList?.results
+                        }
+                    }
+                    self.commonDisplayList = self.discussionForumPostListresultsMyLog
+                    self.lastSelectedCategoryId = categoryId
+                    self.discussionForumTableView.reloadData()
+                    ProgressHud.hideActivityIndicator(uiView: self.view)
+                }
             }
         }
     }
     
     @objc func refresh() {
-        let  page = self.discussionForumPostList?.current_page ?? 1
-        let pageaddition = page + 1
-        let totalitems:Int? = self.discussionForumPostList?.count ?? 10
-        let result: Double = Double(totalitems! / 10)
-        //denny
-        if (Int(result) > page) {
-            getfetchMyActivityDiscusstionPostsList(pageNo: "\(String(pageaddition))", pageSize: "10", categoryId: strSelectedCategory)
+        if btnActivityLog.isSelected { // My Log
+            let totalitems:Int? = self.discussionForumPostListresultsMyLog?.count
+            let result: Double = Double(totalitems! / 10)
+            let nextPage = Int(result + 1)
+            if totalitems! < (self.discussionpostmodalVM.discussionForumPostListData?.count)! {
+                getfetchMyActivityDiscusstionPostsList(pageNo: "\(String(nextPage))", pageSize: "10", categoryId: strSelectedCategory, type: LogType.my)
+            }
+        } else { //Activity
+            let totalitems:Int? = self.discussionForumPostListresultsActivity?.count
+            let result: Double = Double(totalitems! / 10)
+            let nextPage = Int(result + 1)
+            if totalitems! < (self.discussionpostmodalVM.discussionForumPostListData?.count)! {
+                getfetchMyActivityDiscusstionPostsList(pageNo: "\(String(nextPage))", pageSize: "10", categoryId: strSelectedCategory, type: LogType.activity)
+            }
         }
     }
     
@@ -138,9 +188,20 @@ class DiscussionForumVC: BaseVC {
         categoryToolBar.backgroundColor = .darkGray
     }
     
-    @objc func categoryDone(){
+    @objc func categoryDone() {
         categoryTF.resignFirstResponder()
-        self.getfetchMyActivityDiscusstionPostsList(pageNo: "1", pageSize: "10", categoryId: strSelectedCategory != "" ? strSelectedCategory: "1")
+        if strSelectedCategory == "" {
+            strSelectedCategory = "1"
+            categoryTF.text = self.viewModel.arrCategoryList!.first?.title
+        }
+        var strLogType = ""
+        if btnActivityLog.isSelected { // My Log
+            strLogType = LogType.my
+        } else {
+            // Activity
+            strLogType = LogType.activity
+        }
+        self.getfetchMyActivityDiscusstionPostsList(pageNo: "1", pageSize: "10", categoryId: strSelectedCategory != "" ? strSelectedCategory: "1", type: strLogType)
     }
     
     @objc func categoryCancel(){
@@ -159,14 +220,13 @@ class DiscussionForumVC: BaseVC {
             // set profile image to navigation bar
             //                   noti_imageView.imageFromURL(urlString: self.studentInfo?.student_photo ?? "placeholder")
         }
-        
     }
-  
+    
     
     @IBAction func btnNewFeeds(_ sender: Any) {
         self.performSegue(withIdentifier: "toCreatePost", sender: self)
     }
-   
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier == "toComments"){
             let vc = segue.destination as! DiscussionForumViewCommentsVC
@@ -182,7 +242,33 @@ class DiscussionForumVC: BaseVC {
             //            vc.getPostDetails = self.sendPostDetails
         }
     }
+    
+    @IBAction func btnActivityLogClick(_ sender: UIButton) {
+        categoryTF.text = ""
+        strSelectedCategory = ""
+        lastSelectedCategoryId = ""
+        self.discussionForumPostListresultsActivity = [DiscussionForumPostListModelResults]()
+        self.discussionForumPostListresultsMyLog = [DiscussionForumPostListModelResults]()
+        
+        if sender.isSelected {
+             // Activity Log
+            print("activity Log")
+            self.activityLabel.text = "My Log"
+            sender.isSelected = false
+            self.getfetchMyActivityDiscusstionPostsList(pageNo: "1", pageSize: "10", type: LogType.activity)
+            commonDisplayList = [DiscussionForumPostListModelResults]()
+        } else {
+             // My Log
+            sender.isSelected = true
+            print("My Log")
+            self.activityLabel.text = "Activity Log"
+            commonDisplayList = [DiscussionForumPostListModelResults]()
+            self.getfetchMyActivityDiscusstionPostsList(pageNo: "1", pageSize: "10", type: LogType.my)
+        }
+        self.discussionForumTableView.reloadData()
+    }
 }
+
 extension DiscussionForumVC: UIPickerViewDelegate, UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1

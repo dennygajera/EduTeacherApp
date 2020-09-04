@@ -13,7 +13,9 @@ static let shared = ApiHelper()
 private init (){}
 private func MakeRequest<T>(method: HTTPMethod, endpoint: APIEndPoints, httpHeaders: [String:String]? = nil, payloadBody: [String: Any]? = nil, failure: @escaping (serviceError) -> (), success: @escaping (_ data: T)->()) {
         
+    print(SessionManager.accessToken)
         let SET_URL = URL(string: "\(endpoint.baseURL.appendingPathComponent(endpoint.path).absoluteString.removingPercentEncoding ?? "")")
+        print("request: ",SET_URL)
         var urlRequest = URLRequest(url: SET_URL!)
         urlRequest.httpMethod = "\(method)"
         urlRequest.allHTTPHeaderFields = httpHeaders

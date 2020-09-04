@@ -16,7 +16,7 @@ enum APIEndPoints {
     case reportDiaryChapters(subject_id: String, grade_id: String, is_academic: String)
     case postReportDiary
     case categoryList
-    case discussionforumPosts(pagenumber: String, pageSize: String, category: String = "")
+    case discussionforumPosts(pagenumber: String, pageSize: String, category: String = "", type: String)
 }
 //https://erp.letseduvate.com/qbox/activity_app/login/
 //https://erp.letseduvate.com/qbox/academic/blog/create_blog/?page_number=1&page_size=12&is_published=False&is_reviewed=True
@@ -37,13 +37,20 @@ extension APIEndPoints: EndpointType {
         case .postReportDiary:
             return "academic/v2/report/"
             
-        case .discussionforumPosts(let pgNo, let pgSize, let categoeyId):
-            if categoeyId != "" {
-            return "discussion/list_posts_mobile/?grade=&branch=&category=\(categoeyId)&page=\(pgNo)&page_size=\(pgSize)"
-            } else {
-                return "discussion/list_posts_mobile/?grade=&branch=&page=\(pgNo)&page_size=\(pgSize)"
+        case .discussionforumPosts(let pgNo, let pgSize, let categoeyId, let type):
+            if type == LogType.activity { // Activity Log
+                if categoeyId != "" {
+                return "discussion/list_posts_mobile/?grade=&branch=&category=\(categoeyId)&page=\(pgNo)&page_size=\(pgSize)"
+                } else {
+                    return "discussion/list_posts_mobile/?grade=&branch=&page=\(pgNo)&page_size=\(pgSize)"
+                }
+            } else { // My Log
+                if categoeyId != "" {
+                return "discussion/my_activity_posts_mobile/?grade=&branch=&category=\(categoeyId)&page=\(pgNo)&page_size=\(pgSize)"
+                } else {
+                    return "discussion/my_activity_posts_mobile/?grade=&branch=&page=\(pgNo)&page_size=\(pgSize)"
+                }
             }
-            
         case .categoryList:
             return "discussion/list_category/"
             

@@ -11,8 +11,8 @@ class DiscussionPostListModel: NSObject {
     
     var discussionForumPostListData : DiscussionForumPostListModel? = nil
 
-    func getfetchMyActivityDiscusstionPostsList(pageNo:String, pageSize:String, categoryId: String = "",completion: (() -> Void)?) {
-           let url = APIEndPoints.discussionforumPosts(pagenumber: pageNo, pageSize: pageSize, category: categoryId)
+    func getfetchMyActivityDiscusstionPostsList(pageNo:String, pageSize:String, categoryId: String = "",type: String,completion: (() -> Void)?) {
+        let url = APIEndPoints.discussionforumPosts(pagenumber: pageNo, pageSize: pageSize, category: categoryId, type: type)
            printMe(object: url)
            ApiHelper.shared.fetchMyActivityDiscusstionPostsList(setUrl: url, success: {[weak self] (successJson) in
                guard let self = self else {return}
